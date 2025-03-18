@@ -1,0 +1,68 @@
+.startpage
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+    background: #FF5E56
+    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 1) 108.93%)
+    
+.button
+    width: 158px
+    height: 40px
+    border-radius: 6px
+    padding: 12px 24px
+    gap: 10px
+    border: 1px solid rgba(255, 255, 255, 1);
+    background: transparent
+    font-family: sans-serif
+    font-weight: 500
+    font-size: 12px
+    line-height: 16px
+    letter-spacing: 0%
+    text-align: center
+    vertical-align: middle
+    color: rgba(255, 255, 255, 1)
+
+    &:hover
+        background: rgba(255, 255, 255, 1)
+        font-family: sans-serif
+        font-weight: 500
+        font-size: 12px
+        line-height: 16px
+        letter-spacing: 0%
+        text-align: center
+        vertical-align: middle
+        color: rgba(0, 0, 0, 1)
+        cursor: url('./assets/Pointer.svg'), pointer
+
+    &.disabled
+        background: rgba(190, 197, 204, 1)
+        cursor: not-allowed
+
+@media (min-width: 600px)
+    .button
+        width: 211px
+        height: 56px
+        border-radius: 6px
+        padding: 16px 32px
+        font-family: sans-serif
+        font-weight: 500
+        font-size: 16px
+        line-height: 24px
+        letter-spacing: 0%
+        text-align: center
+        vertical-align: middle
+        color: rgba(255, 255, 255, 1)
+
+        &:hover
+            background: rgba(255, 255, 255, 1)
+            font-family: sans-serif
+            font-weight: 500
+            font-size: 16px
+            line-height: 24px
+            letter-spacing: 0%
+            text-align: center
+            vertical-align: middle
+            color: rgba(0, 0, 0, 1)
+            cursor: url('./assets/Pointer.svg'), pointer
+
