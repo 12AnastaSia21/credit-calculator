@@ -4,7 +4,7 @@ import './TheButtonStart.sass'
 export default function TheButtonStart() {
     const navigate = useNavigate();
 
-    const handleClick = () => {
+    const handleClick = (): void => {
         navigate('/TheDefaultPage');
     };
 
