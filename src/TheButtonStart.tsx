@@ -8,7 +8,6 @@ export default function TheButtonStart() {
         navigate('/TheDefaultPage');
     };
 
-
     return (
         <div className='startpage'>
             <button className='button' onClick={handleClick}>Расчет платежей</button>

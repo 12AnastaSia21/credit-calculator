@@ -1,0 +1,249 @@
+.default-page
+    display: flex
+    flex-direction: column
+    height: 100vh
+    position: relative
+
+.default-page__button-close
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    border: none
+    background: transparent
+    width: 24px
+    height: avto
+    top: 16px
+    right: 16px
+
+    &:hover
+        cursor: url('./assets/Pointer.svg'), pointer
+
+.default-page__header
+    margin: 0
+    padding: 2rem 1rem 0 1rem
+    font-family: sans-serif
+    font-weight: 500
+    font-size: 18px
+    line-height: 24px
+    letter-spacing: 0%
+    color: rgba(0, 0, 0, 1)
+
+
+.default-page__text
+    margin: 0
+    padding: 1rem 1rem 0 1rem
+
+.default-page__text-paragraph
+    margin: 0
+    padding: 0
+    font-family: sans-serif
+    font-weight: 400
+    font-size: 12px
+    line-height: 16px
+    letter-spacing: 0%
+    color: rgba(128, 128, 128, 1)
+
+.default-page__form-info
+    margin: 0
+    padding: 0.5rem 1rem 0 1rem
+    display: flex
+    flex-direction: column
+    gap: 0.5rem
+
+.default-page__subtitle
+    margin: 0
+    padding: 0
+    font-family: sans-serif
+    font-weight: 500
+    font-size: 14px
+    line-height: 24px
+    letter-spacing: 0%
+    color: rgba(0, 0, 0, 1)
+    
+.default-page__form-input
+    padding: 0.5rem 0.6rem
+    border-radius: 3px
+    border-width: 1px
+    border-color: rgba(223, 227, 230, 1)
+    border-style: solid
+    outline: none
+    box-shadow: none
+    appearance: none
+    font-family: sans-serif
+    font-weight: 400
+    font-size: 14px
+    line-height: 24px
+    letter-spacing: 0%
+    color: rgba(0, 0, 0, 1)
+
+    &:hover
+        border-color: rgba(0, 0, 0, 1) !important
+    
+    &:disabled
+        border-color: rgba(128, 128, 128, 1)
+        &::placeholder
+            color: rgba(128, 128, 128, 1)
+
+    &::placeholder
+        color: rgba(190, 197, 204, 1)
+
+.default-page__error-message
+    margin: 0
+    padding: 0.25rem 1rem 0 1rem
+    font-family: sans-serif
+    font-weight: 400
+    font-size: 10px
+    line-height: 12px
+    letter-spacing: 0%
+    color: rgba(234, 0, 41, 1)
+
+.default-page__container-button-calculate
+    padding-top: 0.5rem
+    height: auto
+    border: none
+
+.default-page__button-calculate
+    padding-left: 1rem
+    border: none
+    background: transparent
+    text-align: left
+    font-family: sans-serif
+    font-weight: 500
+    font-size: 14px
+    line-height: 24px
+    letter-spacing: 0%
+    color: rgba(234, 0, 41, 1)
+
+    &:active
+        color: rgba(234, 0, 41, 1)
+    &:hover
+        color: rgba(245, 58, 49, 1)
+        cursor: url('./assets/Pointer.svg'), pointer
+
+.default-page__months
+    display: flex
+    flex-direction: column
+    gap: 1rem
+    padding: 1.5rem 0 0 1rem
+
+.default-page__months-buttons
+    display: flex
+    gap: 0.5rem
+
+.default-page__months-button
+    border-radius: 50px
+    border: none
+    padding: 6px 12px
+    background: rgba(238, 240, 242, 1)
+    font-family: sans-serif
+    font-weight: 400
+    font-size: 14px
+    line-height: 24px
+    letter-spacing: 0%
+    text-align: center
+    vertical-align: middle
+    color: rgba(0, 0, 0, 1)
+
+    &:hover
+        background: rgba(223, 227, 230, 1)
+        cursor: url('./assets/Pointer.svg'), pointer
+
+    &:active
+        background: #FF5E56
+        background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 1) 108.93%)
+        color: rgba(255, 255, 255, 1)
+
+    &.active
+        background: #FF5E56
+        background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 1) 108.93%)
+        color: rgba(255, 255, 255, 1)
+
+.default-page__result-container
+    
+    padding: 1rem 0 0 1rem
+    display: none
+    flex-direction: column
+    gap: 1rem
+
+.default-page__period
+    display: flex
+    gap: 0.37rem
+
+.default-page__button-period
+    border-radius: 50px
+    border: none
+    padding: 6px 12px
+    background: rgba(238, 240, 242, 1)
+    font-family: sans-serif
+    font-weight: 400
+    font-size: 14px
+    line-height: 24px
+    letter-spacing: 0%
+    text-align: center
+    vertical-align: middle
+    color: rgba(0, 0, 0, 1)
+
+    &:hover
+        background: rgba(223, 227, 230, 1)
+        cursor: url('./assets/Pointer.svg'), pointer
+
+    &:active
+        background: #FF5E56
+        background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 1) 108.93%)
+        color: rgba(255, 255, 255, 1)
+
+    &.active
+        background: #FF5E56
+        background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 1) 108.93%)
+        color: rgba(255, 255, 255, 1)
+
+.default-page__output-result
+    padding-top: 0.5rem
+    font-family: sans-serif
+    font-weight: 400
+    font-size: 20px
+    line-height: 24px
+    letter-spacing: 0%
+    color: rgba(0, 0, 0, 1)
+
+.default-page__container-button-add
+    position: absolute
+    bottom: 0
+    right: 0
+    left: 0
+    padding: 0 1rem 1rem 1rem
+
+.default-page__button-add
+    width: 100%
+    padding: 12px 0 12px 0
+    border-radius: 6px
+    border: none
+    background: #FF5E56
+    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 1) 108.93%)
+    box-shadow: 0px 0px 24px 0px rgba(234, 0, 41, 0.33)
+    font-family: sans-serif
+    font-weight: 500
+    font-size: 12px
+    line-height: 16px
+    letter-spacing: 0%
+    text-align: center
+    vertical-align: middle
+    color: rgba(255, 255, 255, 1)
+    
+    &:hover
+        background: rgba(234, 0, 41, 1)
+        box-shadow: 0px 0px 24px 0px rgba(234, 0, 41, 0.33)
+        cursor: url('./assets/Pointer.svg'), pointer
+
+    &:active
+        background: rgba(234, 0, 41, 1)
+        box-shadow: 0px 0px 24px 0px rgba(234, 0, 41, 0.33)
+
+    &:disabled
+        background: rgba(190, 197, 204, 1)
+        
+
+
+
+    
