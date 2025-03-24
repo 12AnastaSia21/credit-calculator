@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./TheDefaultPage.sass";
 
 export default function TheDefaultPage() {
@@ -8,6 +9,12 @@ export default function TheDefaultPage() {
   const [months, setMonths] = useState<number>(12); 
   const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
   const [annualPayment, setAnnualPayment] = useState(false)
+
+  const navigate = useNavigate();
+  const handleClosePopup = () => {
+    navigate("/"); // Возвращаемся на главную
+  };
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
@@ -38,9 +45,9 @@ export default function TheDefaultPage() {
   };
 
   return (
-    <div className="default-page">
-      <div className="default-page__popup">
-        <button className="default-page__button-close">
+    <div className="default-page" onClick={handleClosePopup}>
+      <div className="default-page__popup" onClick={(e) => e.stopPropagation()}>
+        <button className="default-page__button-close" onClick={handleClosePopup}>
           <img className="default-page__img-close" src="./close.svg" alt="" />
         </button>
         <h1 className="default-page__header">Платежи по кредиту</h1>
