@@ -4,31 +4,44 @@ import "./TheDefaultPage.sass";
 export default function TheDefaultPage() {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
+  const [showPeriod, setShowPeriod] = useState(false);
+  const [months, setMonths] = useState<number>(12); 
+  const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
+  const [annualPayment, setAnnualPayment] = useState(false)
 
-  const handleCalculate = () => {
-    if (!inputValue.trim()) {
-      setError(true);
-    } else {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim();
+    setInputValue(value);
+
+    if (value && !isNaN(Number(value))) {
       setError(false);
+    } else {
+      setError(true);
+      setShowPeriod(false);
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    if (e.target.value.trim()) {
-      setError(false);
+  const handleMonthSelection = (selectedMonths: number) => {
+    setMonths(selectedMonths);
+  };
+
+  const handleCalculate = () => {
+    if (!inputValue.trim() || isNaN(Number(inputValue))) {
+      setError(true);
+      setShowPeriod(false);
+      return;
     }
+
+    setError(false);
+    setShowPeriod(true);
+    setMonthlyPayment(Number(inputValue) / months);
   };
 
   return (
     <div className="default-page">
       <div className="default-page__popup">
         <button className="default-page__button-close">
-          <img
-            className="default-page__img-close"
-            src="./close.svg"
-            alt=""
-          ></img>
+          <img className="default-page__img-close" src="./close.svg" alt="" />
         </button>
         <h1 className="default-page__header">Платежи по кредиту</h1>
         <div className="default-page__text">
@@ -61,32 +74,42 @@ export default function TheDefaultPage() {
           </p>
         )}
         <div className="default-page__container-button-calculate">
-          <button
-            className="default-page__button-calculate"
-            onClick={handleCalculate}
-          >
+          <button className="default-page__button-calculate" onClick={handleCalculate}>
             Рассчитать
           </button>
         </div>
         <div className="default-page__months">
           <h2 className="default-page__subtitle">Количество месяцев?</h2>
           <div className="default-page__months-buttons">
-            <button className="default-page__months-button">12</button>
-            <button className="default-page__months-button">24</button>
-            <button className="default-page__months-button">36</button>
-            <button className="default-page__months-button">48</button>
+            {[12, 24, 36, 48].map((num) => (
+              <button
+                key={num}
+                className={`default-page__months-button ${months === num ? "active" : ""}`}
+                onClick={() => handleMonthSelection(num)}
+              >
+                {num}
+              </button>
+            ))}
           </div>
         </div>
-        <div className="default-page__result-container">
-          <h2 className="default-page__subtitle">
-            Итого ваш платеж по кредиту:
-          </h2>
-          <div className="default-page__period">
-            <button className="default-page__button-period">в год</button>
-            <button className="default-page__button-period">в месяц</button>
+        {showPeriod && (
+          <div className="default-page__result-container">
+            <h2 className="default-page__subtitle">
+              Итого ваш платеж по кредиту:
+            </h2>
+            <div className="default-page__period">
+              <button className={`default-page__button-period ${annualPayment ? "active" : ""}`}
+                onClick={() => setAnnualPayment(true)}>в год</button>
+              <button className={`default-page__button-period ${!annualPayment ? "active" : ""}`}
+                onClick={() => setAnnualPayment(false)}>в месяц</button>
+            </div>
+            <output className="default-page__output-result">
+            {monthlyPayment !== null
+                ? `${(annualPayment ? monthlyPayment * 12 : monthlyPayment).toFixed(2)} рублей`
+                : ""}
+            </output>
           </div>
-          <output className="default-page__output-result">20 000 рублей</output>
-        </div>
+        )}
         <div className="default-page__container-button-add">
           <button className="default-page__button-add">Добавить</button>
         </div>
@@ -94,3 +117,4 @@ export default function TheDefaultPage() {
     </div>
   );
 }
+
